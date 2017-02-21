@@ -1,121 +1,46 @@
-<!doctype html>
-<html lang="zh">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>zz</title>
-<link rel="stylesheet" type="text/css" href="css/default.css">
-<link rel='stylesheet prefetch' href='http://libs.useso.com/js/font-awesome/4.2.0/css/font-awesome.min.css'>
-<link rel="stylesheet" type="text/css" href="css/styles.css">
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+    </style>
+    <link href="css/index.css" rel="stylesheet" />
+    <script src="js/wheel.js"></script>
+    <script>
+        window.onload=function () {
+            var oDiv=document.getElementsByClassName('clientDiv');
+            var oBox=document.getElementById('box');
+            for (var i=0;i<oDiv.length;i++){
+                var oW=document.documentElement.clientWidth||document.body.clientWidth;
+                var oH=document.documentElement.clientHeight||document.body.clientHeight;
+                oDiv[i].style.height=oH+'px';
+                oDiv[i].style.widht=oW+'px'
+            }
+            var a=0;
+            var oBtn=document.getElementById('btn');
+            oBtn.onclick=function () {
+                a-=100;
+                oBox.style.top=a+'px'
+            }
+
+
+        }
+    </script>
 </head>
 <body>
-
-<!-- 代码部分begin -->
-<section class="strips">
-  <article class="strips__strip">
-	<div class="strip__content">
-	  <h1 class="strip__title" data-name="Lorem">Awesome</h1>
-	  	 <div class="strip__inner-text">
-	  	<p>hello! Welcome to lanrenzhijia!</p>
-	  	<p><a href="#" target="_blank"></a></p>
-		<p>
-		  <a href="#" target="_blank"><i class="fa fa-qq"></i></a>
-		</p>
-		</div>
-	</div>
-  </article>
-  <article class="strips__strip">
-	<div class="strip__content">
-	  <h1 class="strip__title" data-name="Ipsum">Words</h1>
-	  <div class="strip__inner-text">
-		<h2>Ettrics</h2>
-		<p>适用浏览器：360、FireFox、Chrome、Safari、Opera、傲游、搜狗、世界之窗. 不支持IE8及以下浏览器。</p>
-		<p><a href="#" target="_blank"></a></p>
-		<p>
-		  <a href="#" target="_blank"><i class="fa fa-qq"></i></a>
-		</p>
-	  </div>
-	</div>
-  </article>
-  <article class="strips__strip">
-	<div class="strip__content">
-	  <h1 class="strip__title" data-name="Dolor">Go</h1>
-	  <div class="strip__inner-text">
-		<h2>Ettrics</h2>
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia sapiente deserunt consectetur, quod reiciendis corrupti quo ea aliquid! Repellendus numquam quo, voluptate. Suscipit soluta omnis quibusdam facilis, illo voluptates odit!</p>
-		<p>
-		  <a href="#" target="_blank"><i class="fa fa-weibo"></i></a>
-		</p>
-	  </div>
-	</div>
-  </article>
-  <article class="strips__strip">
-	<div class="strip__content">
-	  <h1 class="strip__title" data-name="Sit">Inside</h1>
-	  <div class="strip__inner-text">
-		<h2>Ettrics</h2>
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia sapiente deserunt consectetur, quod reiciendis corrupti quo ea aliquid! Repellendus numquam quo, voluptate. Suscipit soluta omnis quibusdam facilis, illo voluptates odit!</p>
-		<p>
-		  <a href="#" target="_blank"><i class="fa fa-weixin"></i></a>
-		</p>
-	  </div>
-	</div>
-  </article>
-  <article class="strips__strip">
-	<div class="strip__content">
-	  <h1 class="strip__title" data-name="Amet">Here</h1>
-	  <div class="strip__inner-text">
-		<h2>Ettrics</h2>
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia sapiente deserunt consectetur, quod reiciendis corrupti quo ea aliquid! Repellendus numquam quo, voluptate. Suscipit soluta omnis quibusdam facilis, illo voluptates odit!</p>
-		<p>
-		  <a href="#" target="_blank"><i class="fa fa-leaf"></i></a>
-		</p>
-	  </div>
-	</div>
-  </article>
-  <i class="fa fa-close strip__close"></i>
-</section>
-
-<script src="js/jquery-1.8.3.min.js"></script>
-<script>
-var Expand = function () {
-	var tile = $('.strips__strip');
-	var tileLink = $('.strips__strip > .strip__content');
-	var tileText = tileLink.find('.strip__inner-text');
-	var stripClose = $('.strip__close');
-	var expanded = false;
-	var open = function () {
-		var tile = $(this).parent();
-		if (!expanded) {
-			tile.addClass('strips__strip--expanded');
-			tileText.css('transition', 'all .6s 1s cubic-bezier(0.23, 1, 0.32, 1)');
-			stripClose.addClass('strip__close--show');
-			stripClose.css('transition', 'all .6s 1s cubic-bezier(0.23, 1, 0.32, 1)');
-			expanded = true;
-		}
-	};
-	var close = function () {
-		if (expanded) {
-			tile.removeClass('strips__strip--expanded');
-			tileText.css('transition', 'all 0.15s 0 cubic-bezier(0.23, 1, 0.32, 1)');
-			stripClose.removeClass('strip__close--show');
-			stripClose.css('transition', 'all 0.2s 0s cubic-bezier(0.23, 1, 0.32, 1)');
-			expanded = false;
-		}
-	};
-	var bindActions = function () {
-		tileLink.on('click', open);
-		stripClose.on('click', close);
-	};
-	var init = function () {
-		bindActions();
-	};
-	return { init: init };
-}();
-Expand.init();
-</script>
-<!-- 代码部分end -->
-
+    <div id="box">
+        <input type="button" value="111" id="btn" />
+        <div class="clientDiv red"></div>
+        <div class="clientDiv ccc"></div>
+        <div class="clientDiv yellow"></div>
+        <div class="clientDiv red"></div>
+        <div class="clientDiv yellow"></div>
+    </div>
 </body>
 </html>
