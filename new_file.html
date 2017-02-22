@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+				window.onload=function (){
+					var ua = navigator.userAgent.toLowerCase();	
+					var oD=document.getElementsByTagName('div')[0];
+				
+				function is_weixn(){  
+			        if(ua.match(/MicroMessenger/i)=="micromessenger") {  
+			            alert('这是微信浏览器,点击右上角在浏览器打开');
+			            oD.style.display='block';
+			        } else {  
+			            if (/iphone|ipad|ipod/.test(ua)) {
+						     window.location.href='https://itunes.apple.com/cn/app/yin-yang-xi-you-shou-chuang/id1182212566?mt=8';
+						   
+						} else if (/android/.test(ua)) {
+							  window.location.href="http://down.y2game.net/yyxy2_signed.apk";
+						}  
+			        }  
+			    }
+			 is_weixn()
+				}
+		</script>
+	</head>
+	<body>
+		<div style="width: 100px;height: 100px;background: red;display: none;">
+			
+		</div>
+	</body>
+</html>
